@@ -1,0 +1,11 @@
+{% extends "bryopo/index.html" %}
+{% block title %}{{ opowiadanie.opo_title }}{% endblock %}
+{% block content %}
+
+	    <p class="text_title">{{ opowiadanie.opo_title }}</p>
+	    <p>&nbsp; </p>
+      {{ opowiadanie.opo_text }}
+			<p>&nbsp;</p>
+      <p class="year">{{ opowiadanie.year_added }}</p>
+
+{% endblock %}

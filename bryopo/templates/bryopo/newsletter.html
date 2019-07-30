@@ -1,0 +1,30 @@
+﻿{% extends "index.html" %}
+{% block title %}Newsletter{% endblock %}
+{% block content %}
+
+    <div class="newsletter">
+	    <p class="text_title">Newsletter</p>
+	    <p>&nbsp; </p>
+		<p>Wyślij mi swój email, aby otrzymać wiadomość, gdy tylko dodam nowe opowiadanie.</p>
+        <br>
+        <div style="text-align: center">
+            <p style="display: inline-block">Twój email:</p>
+            <div class="form">
+              {% block form %}
+
+              <form method="post" style="display: inline">{% csrf_token %}
+                {{ form }}
+                <input type="text" name="email" value="{{email}}">
+                <input type="submit" value="Wyślij" name="send"/>
+
+              {% if form.input_links.errors %}
+                <p class="error"><b>{{error}}</b></p>
+              {% endif %}
+              </form>
+
+              {% endblock %}
+              </div>
+        </div>
+    </div>
+
+{% endblock %}
